@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412121103) do
+ActiveRecord::Schema.define(version: 20140412121554) do
 
   create_table "conversations", force: true do |t|
     t.datetime "created_at"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140412121103) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
   end
 
   create_table "user_conversations", force: true do |t|
