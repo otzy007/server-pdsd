@@ -1,4 +1,6 @@
+<%= link_to 'New Conversation', :new_conversation %>
+
 <% @conversations.each do |c| %>
-    <%= link_to c.id, c.id %>
+    <%= link_to c.id, conversation_path(c.id) %>
     <br />
 <% end %>

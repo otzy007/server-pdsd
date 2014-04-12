@@ -1,2 +1,7 @@
-<h1>Conversations#new</h1>
-<p>Find me in app/views/conversations/new.html.erb</p>
+<%= form_for @message, url: conversations_path, html: { multipart: true } do |form| %>
+To: <%= text_field :conversation, :to %>
+<br />
+<%= form.file_field :file %>
+<%= form.submit 'Send' %>
+<% end %>
+

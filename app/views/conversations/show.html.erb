@@ -1,2 +1,3 @@
-<h1>Conversations#show</h1>
-<p>Find me in app/views/conversations/show.html.erb</p>
+<% @messages.each do |m| %>
+    <%= m.file.url %>
+<% end %>

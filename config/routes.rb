@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   get 'conversations/index'
 
-  get 'conversations/show'
-
-  get 'conversations/new'
-
   devise_for :users
 
   resources :conversations
