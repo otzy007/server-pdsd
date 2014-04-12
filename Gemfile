@@ -27,8 +27,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'devise'
+gem 'paperclip'
 
-# Use ActiveModel has_secure_password
+# Use ActiveModel has_secure_passwordco
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
