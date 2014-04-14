@@ -1,4 +1,4 @@
 <% @friendships.each do |f| %>
-    <%= link_to f.user.number, new_conversation_path( to: f.user.number ) %>
+    <%= link_to f.friend.name, new_conversation_path( to: f.friend.number ) %>
     <br />
 <% end %>
