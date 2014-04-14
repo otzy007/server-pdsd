@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'paperclip'
+gem 'paperclip-dropbox'
 
 # Use ActiveModel has_secure_passwordco
 # gem 'bcrypt', '~> 3.1.7'
