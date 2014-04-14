@@ -10,6 +10,15 @@ class ConversationsController < ApplicationController
 
   def new
     @message = Message.new
+
+    to = params.permit(:to)[:to]
+
+    if to
+      c = current_user.conversations.includes(:users).where('users.number' => to)
+      unless c.empty?
+        redirect_to conversation_path(c.first)
+      end
+    end
   end
 
   def create

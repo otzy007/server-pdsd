@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'friends/index'
+
   get 'conversations/index'
 
   devise_for :users
 
   resources :conversations
+  resources :friends
 
   root 'conversations#index'
   # The priority is based upon order of creation: first created -> highest priority.
