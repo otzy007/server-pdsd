@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :through
   belongs_to :conversation
 
   has_attached_file :file, {
