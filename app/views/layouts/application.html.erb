@@ -9,6 +9,12 @@
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
+<div id="menu">
+    <%= link_to 'Messages', conversations_path %>
+    <%= link_to 'Friends', friends_path %>
+</div>
+
 <%= yield %>
 
 </body>
