@@ -1,6 +1,7 @@
 <%= link_to 'New Conversation', :new_conversation %>
-
+<br />
 <% @conversations.each do |c| %>
-    <%= link_to c.id, conversation_path(c.id) %>
+    <%= image_tag 'avatar.gif' %>
+    <%= link_to friend_name(c), conversation_path(c.id) %>
     <br />
 <% end %>

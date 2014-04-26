@@ -7,4 +7,8 @@ module ConversationsHelper
       image_tag message.file.url, args
     end
   end
+
+  def friend_name(c)
+    c.users.select { |u| u if u.number != current_user.number }.first.number
+  end
 end
