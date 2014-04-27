@@ -27,11 +27,10 @@ class ConversationsController < ApplicationController
     if conversations.empty?
       conversation = current_user.conversations.create!
       conversation.users << User.find_by_number(to)
-      conversation.messages.create file: params.require(:message).require(:file)
     else
       conversation = conversations.first
-      conversation.messages.create file: params.require(:message).require(:file)
     end
+    conversation.messages.create file: params.require(:message).require(:file), user: current_user
     conversation.save
 
     redirect_to conversation_path(conversation)

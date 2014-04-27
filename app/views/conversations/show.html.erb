@@ -1,5 +1,7 @@
 <% @messages.each do |m| %>
     <%= image_tag 'avatar.gif' %>
+    <br />
+    <%= m.user.number %>
     <%= media_tag m,  size: '225x225' %>
     <br />
 <% end %>
