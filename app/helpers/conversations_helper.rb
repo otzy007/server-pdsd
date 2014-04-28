@@ -9,6 +9,6 @@ module ConversationsHelper
   end
 
   def friend_name(c)
-    c.users.select { |u| u if u.number != current_user.number }.first.number
+    c.users.select { |u| u if u.number != current_user.number }.first.name
   end
 end
