@@ -32,6 +32,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'paperclip-dropbox'
 
+gem 'rails-backbone'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
