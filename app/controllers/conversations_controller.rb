@@ -1,5 +1,6 @@
+# Controllerul conversatiilor
 class ConversationsController < ApplicationController
-
+  # Lista de conversatii
   def index
     @conversations = current_user.conversations.order('created_at DESC')
     respond_to do |format|
@@ -8,6 +9,9 @@ class ConversationsController < ApplicationController
     end
   end
 
+  # Conversatia intre 2 utilizatori
+  # Params:
+  # +id+:: ID user
   def show
     @conversation = current_user.conversations.find_by_id params.require(:id)
     @messages = @conversation.messages.order('created_at')
@@ -30,6 +34,10 @@ class ConversationsController < ApplicationController
     end
   end
 
+  # Crearea de raspuns la conversatie sau creare de conversatie noua
+  # Params:
+  # +conversation:to+:: Numarul cui primeste mesajul
+  # +message:file+:: Fisierul
   def create
     to = params.require(:conversation).require(:to)
     conversations = current_user.conversations.includes(:users).where('users.number' => to)

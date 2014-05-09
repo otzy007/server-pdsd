@@ -1,4 +1,5 @@
 class FriendsController < ApplicationController
+  # Lista de prieteni
   def index
     @friendships = current_user.friendships.includes :user
     p current_user
@@ -14,6 +15,9 @@ class FriendsController < ApplicationController
     @friend = User.new
   end
 
+  # Cautarea unui nou prieten
+  # Params:
+  # +friend:number+:: numarul cautat
   def find_new
     p params
     @number = params.require(:friend).require :number
@@ -32,6 +36,9 @@ class FriendsController < ApplicationController
     end
   end
 
+  # Adauga noul prieten
+  # Params:
+  # +friend_id+: idul primit de la find_new
   def add
     id = params.require(:friend_id)
     current_user.friendships.create friend_id: id
