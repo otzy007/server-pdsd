@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+
   def index
     @conversations = current_user.conversations.order('created_at DESC')
     respond_to do |format|
