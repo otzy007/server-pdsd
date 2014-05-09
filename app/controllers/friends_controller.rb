@@ -3,6 +3,11 @@ class FriendsController < ApplicationController
     @friendships = current_user.friendships.includes :user
     p current_user
     p @friendships
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @friendships.to_json(include: :friend) }
+    end
   end
 
   def new
@@ -15,13 +20,25 @@ class FriendsController < ApplicationController
     @friend = User.find_by_number @number
 
     unless @friend
-      redirect_to new_friend_path, alert: "No user found with the phone number #{@number}"
+      respond_to do |format|
+        format.html { redirect_to new_friend_path, alert: "No user found with the phone number #{@number}" }
+        format.json { render :json => { errors: ["No user found with the phone number #{@number}"]}, status: :bad_request }
+      end
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @friend }
     end
   end
 
   def add
     id = params.require(:friend_id)
     current_user.friendships.create friend_id: id
-    redirect_to friends_path, alert: "#{User.find(id).name} is now your friend"
+
+    respond_to do |format|
+      format.html { redirect_to friends_path, alert: "#{User.find(id).name} is now your friend" }
+      format.json { render :json => {success: 'OK'} }
+    end
   end
 end

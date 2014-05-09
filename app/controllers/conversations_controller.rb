@@ -1,11 +1,19 @@
 class ConversationsController < ApplicationController
   def index
     @conversations = current_user.conversations.order('created_at DESC')
+    respond_to do |format|
+      format.html
+      format.json { render :json => @conversations }
+    end
   end
 
   def show
     @conversation = current_user.conversations.find_by_id params.require(:id)
     @messages = @conversation.messages.order('created_at')
+    respond_to do |format|
+      format.html
+      format.json { render :json => @messages.to_json(include: :user) }
+    end
   end
 
   def new
