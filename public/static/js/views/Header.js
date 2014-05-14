@@ -3,6 +3,15 @@ define(['marionette', 'templates'],
         "use strict";
 
         return Marionette.ItemView.extend({
-            template : templates.header
+            template : templates.header,
+
+            initialize: function (options) {
+            	console.log(options.tab);
+                options = options || {};
+                if (options.tab && options.model) {
+                    options.model.set('tab', options.tab);
+                }
+
+            }
         });
     });

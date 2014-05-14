@@ -12,8 +12,8 @@
             </p>
 
             <ul class="nav">
-              <li><a href="/conversations">Talks</a></li>
-              <li><a href="/friends">Buddies</a></li>
+              <li <% if (tab === "conversations") { %> class="active"<% } %> ><a href="/conversations">Talks</a></li>
+              <li <% if (tab === "friends") { %> class="active"<% } %> ><a href="/friends">Buddies</a></li>
             </ul>
           </div>
         </div>

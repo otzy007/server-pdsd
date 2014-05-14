@@ -62,8 +62,30 @@ define(['app',
             },
             
             index: function () {
+                var user_model = new UserModel();
                 app.header.show(new Header({
-                    model: this.user_model
+                    model: user_model,
+                    tab: ''
+                }));
+                app.footer.show(new Footer(app.options));
+                
+            },
+
+            conversations: function () {
+                var user_model = new UserModel();
+                app.header.show(new Header({
+                    model: user_model,
+                    tab: 'conversations'
+                }));
+                app.footer.show(new Footer(app.options));
+                
+            },
+
+            friends: function () {
+                var user_model = new UserModel();
+                app.header.show(new Header({
+                    model: user_model,
+                    tab: 'friends'
                 }));
                 app.footer.show(new Footer(app.options));
                 

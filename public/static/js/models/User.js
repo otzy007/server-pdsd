@@ -14,7 +14,8 @@ define(["jquery", "backbone", "cookie"],
             // Default values for all of the Model attributes
             defaults: {
                 email: "",
-                isSignedIn: false
+                isSignedIn: false,
+                tab: ""
             }
         });
     });
