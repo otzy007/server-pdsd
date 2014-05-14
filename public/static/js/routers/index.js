@@ -9,10 +9,7 @@ define(['marionette'], function (Marionette) {
             'login'         : 'login',
             'explore'       : 'listFiles',
             'edit'          : 'editFile',
-            'edit/*path'    : 'editFile',
-            'select'        : 'selectDevice',
-            'select/*path'  : 'selectDevice',
-            'render/*path'  : 'renderAsset'
+            'edit/*path'    : 'editFile'
         }
     });
 });

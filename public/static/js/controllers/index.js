@@ -62,7 +62,9 @@ define(['app',
             },
             
             index: function () {
-                app.header.show(new IndexHeaderView(app.options));
+                app.header.show(new Header({
+                    model: this.user_model
+                }));
                 app.footer.show(new Footer(app.options));
                 
             },
@@ -129,54 +131,6 @@ define(['app',
                     }
                 });
 
-                app.footer.show(new Footer(app.options));
-            },
-            
-            selectDevice: function (path) {
-                app.header.show(new Header({
-                    model: this.user_model
-                }));
-                
-                this.model = new AssetModel({path: path});
-                
-                var self = this;
-                this.model.fetch({
-                    success: function (asset) {
-                        app.body.show(new SelectDeviceView({
-                            devices: new DevicesView({
-                                
-                            }),
-                            device: new DeviceView({
-                                model: self.model,
-                                path: path
-                            })
-                        }));
-                    }
-                });
-                app.footer.show(new Footer(app.options));
-            },
-            
-            renderAsset: function (path) {
-                app.header.show(new Header({
-                    model: this.user_model
-                }));
-                
-                this.model = new AssetModel({path: path});
-                
-                var self = this;
-                this.model.fetch({
-                    success: function (asset) {
-                        app.body.show(new RenderAssetView({
-                            devices: new DevicesView({
-                                
-                            }),
-                            display: new DisplayView({
-                                model: self.model,
-                                path: path
-                            })
-                        }));
-                    }
-                });
                 app.footer.show(new Footer(app.options));
             }
         };

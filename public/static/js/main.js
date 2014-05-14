@@ -45,7 +45,9 @@ require.config({
 require(['app', 'backbone', 'routers/index', 'controllers/index'],
     function (app, Backbone, Router, Controller) {
         "use strict";
+        console.log("main.js ");
         app.start();
+        console.log("main.js ");
 
         app.router = new Router({
             controller : Controller
