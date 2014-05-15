@@ -17,7 +17,7 @@ class ConversationsController < ApplicationController
     @messages = @conversation.messages.order('created_at')
     respond_to do |format|
       format.html
-      format.json { render :json => @messages.to_json(include: :user) }
+      format.json { render :json => @messages.to_json(include: :user, :methods => [:file_url]) }
     end
   end
 

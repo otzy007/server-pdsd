@@ -11,4 +11,8 @@ class Message < ActiveRecord::Base
 
   validates_attachment_content_type :file, :content_type => [/\Avideo/, /\Aimage/]
   validates_attachment_file_name :file, :matches => [/mp4\Z/, /jpg\Z/, /png\Z/, /jpeg\Z/]
+
+  def file_url
+    self.file.url
+  end
 end
