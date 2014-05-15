@@ -26,5 +26,13 @@ module Server
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.paperclip_defaults = {
+        :storage => :s3,
+        :s3_credentials => {
+            :bucket => 'server-pdsd',
+            :access_key_id => 'AKIAJA6A5K7GY5AW5RSA',
+            :secret_access_key => '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'
+        }
+    }
   end
 end

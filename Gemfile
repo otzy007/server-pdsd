@@ -31,6 +31,7 @@ end
 gem 'devise'
 gem 'paperclip'
 gem 'paperclip-dropbox'
+gem 'aws-sdk'
 
 gem 'rails-backbone'
 
