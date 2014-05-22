@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
   # Lista de prieteni
   def index
-    @friendships = current_user.friendships.includes :user
+    @friendships = current_user.friendships.joins(:friend).order('users.name COLLATE NOCASE ASC')
     p current_user
     p @friendships
 
