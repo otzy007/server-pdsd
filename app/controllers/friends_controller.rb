@@ -46,4 +46,9 @@ class FriendsController < ApplicationController
       format.json { render :json => {success: 'OK'} }
     end
   end
+
+  def destroy
+    current_user.friendships.find_by_id(params.require(:id)).destroy
+    redirect_to :friends
+  end
 end
