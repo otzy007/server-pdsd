@@ -13,10 +13,10 @@ module ConversationsHelper
   end
 
   def name_position(name)
-    "float: " + if current_user.name == name
-      "right;"
+    if current_user.name == name
+      "right"
     else
-      "left;"
+      "left"
     end
   end
 end
