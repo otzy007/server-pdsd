@@ -1,4 +1,11 @@
+<div class="container center_div">
 <%= form_for @friend, url: find_new_friends_path, :class => "form-inline" do |form| %>
-    <%= text_field :friend, :number, placeholder: 'Insert number' %>
-    <%= form.submit 'Search', class: "btn btn-default" %>
+	<div class="input-group input-group-lg">
+    	<%= text_field :friend, :number, placeholder: 'Insert number', class: 'form-control' %>
+    </div>
+    <br>
+    <div>
+    	<%= form.submit 'Search', class: "btn btn-primary btn-lg" %>
+	</div>
 <% end %>
+</div>
