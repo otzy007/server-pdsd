@@ -23,6 +23,11 @@ class FriendsController < ApplicationController
     @number = params.require(:friend).require :number
     @friend = User.find_by_number @number
 
+    if @friend && current_user.friendships.find_by_friend_id(@friend.id)
+      redirect_to new_friend_path, notice: "You and #{@friend.name} are already friends."
+      return
+    end
+
     unless @friend
       redirect_to new_friend_path, alert: "No user found with the phone number #{@number}"
       return

@@ -47,6 +47,9 @@
     </div>
   </header>
   <section id="body" class="">
+     <% if notice %>
+        <p class="notice" id="notice"><%= notice %></p>
+     <% end %>
      <%= yield %>
   </section>
   <footer id="footer" class="bs-docs-masthead"></footer>
