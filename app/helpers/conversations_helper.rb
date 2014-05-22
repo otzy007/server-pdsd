@@ -11,4 +11,12 @@ module ConversationsHelper
   def friend_name(c)
     c.users.select { |u| u if u.number != current_user.number }.first.name
   end
+
+  def name_position(name)
+    "float: " + if current_user.name == name
+      "right;"
+    else
+      "left;"
+    end
+  end
 end
