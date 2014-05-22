@@ -1,11 +1,11 @@
 <h2>Sign in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :number %><br />
-  <%= f.text_field :number, autofocus: true %></div>
+  <div>
+  <%= f.text_field :number, autofocus: true, placeholder: 'Number' %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div>
+    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %></div>
 
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me, checked: true, hidden: true %> <%= f.label :remember_me, hidden: true %></div>
