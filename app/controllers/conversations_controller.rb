@@ -19,6 +19,7 @@ class ConversationsController < ApplicationController
     friend = @conversation.users.collect { |u| u if u != current_user }.compact.first
     @message = Message.new user: friend
     @to = friend.number
+    @name = friend.name
 
     respond_to do |format|
       format.html
