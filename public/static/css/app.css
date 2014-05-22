@@ -221,7 +221,7 @@ body {
     }
 }
 
-.bs-docs-header {
+.bs-docs-header, .index-header {
     margin-bottom: 40px;
     font-size: 20px
 }
