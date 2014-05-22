@@ -1,16 +1,45 @@
-<header>
+<header id="panel-header">
   <h1 style=""><%= @name %></h1><br />
 </header>
 
-<article>
-<% @messages.each do |m| %>
-    <label style="<%= name_position(m.user.name) %>"><%= m.user.name %></label>
-    <%= media_tag m,  size: '225x225', style: 'position: center;' %>
-    <br />
+<div class="panel-body">
+    <ul class="chat">
+	<% @messages.each do |m| %>
+		<% if name_position(m.user.name) == 'left' %>
+			<li class="left clearfix"><span class="chat-img pull-left">
+	            <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
+	        </span>
+	            <div class="chat-body clearfix">
+	                <div class="header">
+	                    <strong class="primary-font"><%= m.user.name %></strong>
+	                    <small class="pull-right text-muted">
+	                        <span class="glyphicon glyphicon-time"></span>
+	                        <%= time_ago_in_words(m.created_at) %>
+	                    </small>
+	                </div>
+	                <%= media_tag m,  size: '225x225', style: 'position: center;' %>
+	            </div>
+	        </li>
+	    <% else %>
+	    	<li class="right clearfix"><span class="chat-img pull-right">
+	            <img src="http://placehold.it/50/FA6F57/fff&amp;text=ME" alt="User Avatar" class="img-circle">
+	        </span>
+	            <div class="chat-body clearfix">
+	                <div class="header">
+	                	<small class=" text-muted"><span class="glyphicon glyphicon-time"></span>
+	                		<%= time_ago_in_words(m.created_at) %>
+	                	</small>
+                        <strong class="pull-right primary-font"><%= m.user.name %></strong>
+	                    
+	                </div>
+	                <%= media_tag m,  size: '225x225', style: 'position: center;' %>
+	            </div>
+	        </li>
+	    <% end %>
+	<% end %>
+	</ul>
+</div>
 
-<% end %>
-</article>
-
-<footer class="bs-docs-masthead">
+<footer id="panel-footer" class="bs-docs-masthead">
   <%= render partial: 'form', message: @message %>
 </footer>
