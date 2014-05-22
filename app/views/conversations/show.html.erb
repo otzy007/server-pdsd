@@ -2,6 +2,12 @@
   <h1 style=""><%= @name %></h1><br />
 </header>
 
+<script type="text/javascript">
+  function play(link) {
+      Android.play(link);
+  }
+</script>
+
 <div class="panel-body">
     <ul class="chat">
 	<% @messages.each do |m| %>
@@ -18,6 +24,7 @@
 	                    </small>
 	                </div>
 	                <%= media_tag m, style: 'position: center; width: 50%; height: auto;' %>
+
 	            </div>
 	        </li>
 	    <% else %>
