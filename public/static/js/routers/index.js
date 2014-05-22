@@ -6,6 +6,7 @@ define(['marionette'], function (Marionette) {
         appRoutes: {
             ''              : 'index',
             'conversations' : 'conversations',
+            'conversations/:id' : 'showConversation',
             'friends'       : 'friends',
             'register'      : 'register',
             'login'         : 'login',

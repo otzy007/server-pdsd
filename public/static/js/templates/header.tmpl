@@ -1,21 +1,19 @@
-<div class="navbar navbar-inverse">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              <a href="/users/sign_out">Sign Out</a>
-            </p>
-
-            <ul class="nav">
-              <li <% if (tab === "conversations") { %> class="active"<% } %> ><a href="/conversations">Talks</a></li>
-              <li <% if (tab === "friends") { %> class="active"<% } %> ><a href="/friends">Buddies</a></li>
-            </ul>
-          </div>
-        </div>
+<div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-</div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li <% if (tab === "conversations") { %> class="active"<% } %> ><a href="/conversations">Talks</a></li>
+        <li <% if (tab === "friends") { %> class="active"<% } %> ><a href="/friends">Buddies</a></li>
+      </ul>
+      <p class="navbar-text pull-right">
+        <a href="/users/sign_out">Sign Out</a>
+      </p>
+    </nav>
+  </div>

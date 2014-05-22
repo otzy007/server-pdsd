@@ -67,7 +67,7 @@ define(['app',
                     model: user_model,
                     tab: ''
                 }));
-                app.footer.show(new Footer(app.options));
+                //app.footer.show(new Footer(app.options));
                 
             },
 
@@ -77,7 +77,17 @@ define(['app',
                     model: user_model,
                     tab: 'conversations'
                 }));
-                app.footer.show(new Footer(app.options));
+                //app.footer.show(new Footer(app.options));
+                
+            },
+
+            showConversation: function () {
+                var user_model = new UserModel();
+                app.header.show(new Header({
+                    model: user_model,
+                    tab: ''
+                }));
+                //app.footer.show(new Footer(app.options));
                 
             },
 
@@ -87,7 +97,7 @@ define(['app',
                     model: user_model,
                     tab: 'friends'
                 }));
-                app.footer.show(new Footer(app.options));
+                //app.footer.show(new Footer(app.options));
                 
             },
             
@@ -96,14 +106,14 @@ define(['app',
                     model: this.user_model
                 }));
                 
-                app.footer.show(new Footer(app.options));
+                //app.footer.show(new Footer(app.options));
             },
             
             login: function () {
                 app.body.show(new LoginView({
                     model: this.user_model
                 }));
-                app.footer.show(new Footer(app.options));
+                //app.footer.show(new Footer(app.options));
             },
 
             listFiles: function () {

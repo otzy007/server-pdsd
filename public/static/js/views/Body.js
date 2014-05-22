@@ -11,14 +11,10 @@ define(['marionette', 'vent', 'templates', 'views/UploadFile', 'views/File', 'vi
             className: 'row-fluid',
 
             regions : {
-                searchPanel     : '#searchPanel',
-                uploadFile      : '#uploadFile',
-                filesCollection : '#filesCollection'
+                panel   : '#panel',
+                messages: '#messages',
+                record  : '#record'
             },
-
-            ui : {},
-
-            events : {},
 
             initialize : function (options) {
                 this.options = options;
@@ -26,13 +22,10 @@ define(['marionette', 'vent', 'templates', 'views/UploadFile', 'views/File', 'vi
             },
 
             onRender : function () {
-                this.searchPanel.show(this.options.searchPanel);
-                this.uploadFile.show(this.options.uploadFile);
-                this.filesCollection.show(this.options.filesView);
-            },
+                this.panel.show(this.options.panel);
+                this.messages.show(this.options.messages);
+                this.record.show(this.options.record);
+            }   //this.filesCollection.show(this.options);
             
-            onShow: function() {
-                //this.filesCollection.show(this.options);
-            }
         });
     });
