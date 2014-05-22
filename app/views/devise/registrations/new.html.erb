@@ -1,25 +1,28 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="container center_div">
 
-  <div>
-    <%= f.text_field :name, autofocus: true, placeholder: 'Usename', class: 'form-control' %></div>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div>
-    <%= f.number_field :number, placeholder: 'Telephone number', class: 'form-control' %></div>
-  </div>
+    <div>
+      <%= f.text_field :name, autofocus: true, placeholder: 'Usename', class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %></div>
-  </div>
+    <div>
+      <%= f.number_field :number, placeholder: 'Telephone number', class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm password', class: 'form-control' %></div>
-  <div>
+    <div>
+      <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= f.submit "Sign up", class: 'btn btn-default' %>
-  </div>
-<% end %>
+    <div>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm password', class: 'form-control' %>
+    <div>
 
-<%= render "devise/shared/links" %>
+    <div>
+      <%= f.submit "Sign up", class: 'btn btn-default' %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

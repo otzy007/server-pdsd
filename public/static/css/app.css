@@ -1631,5 +1631,10 @@ only screen and (min-device-pixel-ratio : 1.5) {
 /* Styles */
 }
 
+.center_div{
+    margin: 0 auto;
+    width: 70% /* value of your choice which suits your alignment */
+}
+
 
 
