@@ -1,4 +1,5 @@
+<ul class="list-group">
 <% @friendships.each do |f| %>
-    <%= link_to f.friend.name, new_conversation_path( to: f.friend.number ) %>
-    <br />
+    <li class="list-group-item"><%= link_to f.friend.name, new_conversation_path( to: f.friend.number ), class: "" %></li>
 <% end %>
+</ul>
