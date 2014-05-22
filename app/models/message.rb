@@ -12,7 +12,7 @@ class Message < ActiveRecord::Base
       # :hash_secret => "93urfoekh390rfhkdjvbsdfoi0eghdfkh03tughrdslkgsh0-3uhgb4egfklsf@#bhsl!#(hlkbhe093h1Ahr093ehgblaq09384"
   }
 
-  validates_attachment_content_type :file, :content_type => [/\Avideo/, /\Aimage/, 'video/quicktime']
+  validates_attachment_content_type :file, :content_type => [/\Avideo/, /\Aimage/, 'video/quicktime', 'application/octet-stream']
   validates_attachment_file_name :file, :matches => [/mp4\Z/, /jpg\Z/, /png\Z/, /jpeg\Z/, /mov\Z/, /MOV\Z/]
 
   def file_url

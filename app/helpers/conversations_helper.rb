@@ -1,6 +1,6 @@
 module ConversationsHelper
   def media_tag(message, args = {})
-    if message.file_content_type =~ /video/
+    if message.file_content_type =~ /video/ || message.file_file_name =~ /.mp4$/
       args[:controls] = true
       video_tag message.file.url, args
     else
