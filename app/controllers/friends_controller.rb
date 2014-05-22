@@ -24,10 +24,8 @@ class FriendsController < ApplicationController
     @friend = User.find_by_number @number
 
     unless @friend
-      respond_to do |format|
-        format.html { redirect_to new_friend_path, alert: "No user found with the phone number #{@number}" }
-        format.json { render :json => { errors: ["No user found with the phone number #{@number}"]}, status: :bad_request }
-      end
+      redirect_to new_friend_path, alert: "No user found with the phone number #{@number}"
+      return
     end
 
     respond_to do |format|
