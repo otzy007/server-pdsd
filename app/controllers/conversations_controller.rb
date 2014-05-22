@@ -59,12 +59,16 @@ class ConversationsController < ApplicationController
     else
       conversation = conversations.first
     end
-    conversation.messages.create file: params.require(:message).require(:file), user: current_user
-    uc = conversation.user_conversations.where.not(user_id: current_user).first
-    uc.read = false
-    uc.save
-    conversation.save
-
-    redirect_to conversation_path(conversation)
+    hash = {}
+    begin
+      conversation.messages.create file: params.require(:message).require(:file), user: current_user
+      uc = conversation.user_conversations.where.not(user_id: current_user).first
+      uc.read = false
+      uc.save
+      conversation.save
+    rescue ActionController::ParameterMissing
+      hash = { notice: 'Please upload a photo or video' }
+    end
+    redirect_to conversation_path(conversation), hash
   end
 end
