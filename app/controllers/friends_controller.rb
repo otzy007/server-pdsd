@@ -4,7 +4,7 @@ class FriendsController < ApplicationController
     if current_user.friendships.empty?
       @friendships = []
     else
-      @friendships = current_user.friendships.joins(:friend).order('users.name COLLATE NOCASE ASC')
+      @friendships = current_user.friendships.joins(:friend).order('users.name ASC')
     end
 
     respond_to do |format|
