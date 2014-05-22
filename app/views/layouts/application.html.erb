@@ -20,13 +20,14 @@
 </head>
 <body>
 
-  <header id="header" class="navbar navbar-static-top bs-docs-nav navbar-fixed-top" role="banner"></header>
-  <section id="body" class=""></section>
-  <footer id="footer" class=""></footer>
+  <header id="header" class="navbar navbar-static-top bs-docs-nav" role="banner"></header>
+  <section id="body" class="">
+     <%= yield %>
+  </section>
   
   <script data-main="/static/js/main" src="/static/js/lib/require.js"></script>
-
-  <%= yield %>
 	
 </body>
+
+
 </html>
