@@ -23,7 +23,7 @@
 
 </head>
 <body>
-
+<%- if current_user %>
   <header id="header" class="navbar navbar-static-top bs-docs-nav" role="banner">
     <div>
       <div class="container">
@@ -46,6 +46,10 @@
       </div>
     </div>
   </header>
+  <%else%>
+    <header class="index-header"></header>
+  <%end%>
+
   <section id="body" class="">
     <% if alert %>
       <div class="alert alert-success"><%= alert %></div>
