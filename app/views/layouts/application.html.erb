@@ -47,9 +47,11 @@
     </div>
   </header>
   <section id="body" class="">
+    <% if alert %>
+      <div class="alert alert-warning"><%= alert %></div>
+    <% end %>
      <%= yield %>
   </section>
-  <footer id="footer" class="bs-docs-masthead"></footer>
   
   <!--<script data-main="/static/js/main" src="/static/js/lib/require.js"></script>-->
 	
