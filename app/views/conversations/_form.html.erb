@@ -1,0 +1,6 @@
+<%= form_for @message, url: conversations_path, html: { multipart: true } do |form| %>
+    To: <%= text_field :conv, :to, value: @to %>
+    <br />
+    <%= form.file_field :file %>
+    <%= form.submit 'Send' %>
+<% end %>

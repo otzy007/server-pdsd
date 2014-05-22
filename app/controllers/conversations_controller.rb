@@ -15,6 +15,11 @@ class ConversationsController < ApplicationController
   def show
     @conversation = current_user.conversations.find_by_id params.require(:id)
     @messages = @conversation.messages.order('created_at')
+
+    friend = @conversation.users.collect { |u| u if u != current_user }.compact.first
+    @message = Message.new user: friend
+    @to = friend.number
+
     respond_to do |format|
       format.html
       format.json { render :json => @messages.to_json(include: :user, :methods => [:file_url]) }
@@ -39,7 +44,7 @@ class ConversationsController < ApplicationController
   # +conversation:to+:: Numarul cui primeste mesajul
   # +message:file+:: Fisierul
   def create
-    to = params.require(:conversation).require(:to)
+    to = params.require(:conv).require(:to)
     conversations = current_user.conversations.includes(:users).where('users.number' => to)
     if conversations.empty?
       conversation = current_user.conversations.create!

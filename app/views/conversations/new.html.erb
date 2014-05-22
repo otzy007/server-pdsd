@@ -1,7 +1,1 @@
-<%= form_for @message, url: conversations_path, html: { multipart: true } do |form| %>
-To: <%= text_field :conversation, :to %>
-<br />
-<%= form.file_field :file %>
-<%= form.submit 'Send' %>
-<% end %>
-
+<%= render partial: 'form' %>
