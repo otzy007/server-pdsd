@@ -13,7 +13,7 @@ class Message < ActiveRecord::Base
   }
 
   validates_attachment_content_type :file, :content_type => [/\Avideo/, /\Aimage/, 'video/quicktime', 'application/octet-stream']
-  validates_attachment_file_name :file, :matches => [/mp4\Z/, /jpg\Z/, /png\Z/, /jpeg\Z/, /mov\Z/, /MOV\Z/]
+  validates_attachment_file_name :file, :matches => [/mp4\Z/, /jpg\Z/, /png\Z/, /jpeg\Z/, /mov\Z/, /MOV\Z/, /3gp\Z/, /3GP\Z/]
 
   def file_url
     self.file.url
