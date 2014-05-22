@@ -1,8 +1,10 @@
 <ul class="list-group">
 <% @conversations.each do |c| %>
      <li class="list-group-item" href="<%= conversation_path(c.id) %>">
-     	<%= friend_name(c) %>
-     	<span class="badge">42</span>
+     	<%= link_to friend_name(c), conversation_path(c.id) %>
+        <% unless c.user_conversations.find_by_user_id(current_user.id).read %>
+     	    <span class="badge">42</span>
+        <% end %>
      </li>
 <% end %>
 </ul>
