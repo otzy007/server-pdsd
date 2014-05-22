@@ -1,5 +1,10 @@
-<%= form_for @message, url: conversations_path, html: { multipart: true } do |form| %>
-    To: <%= text_field :conv, :to, value: @to %>
-    <%= form.file_field :file %>
-    <%= form.submit 'Send', class: "btn btn-default" %>
-<% end %>
+<div class="container center_div">
+	<%= form_for @message, url: conversations_path, html: { multipart: true } do |form| %>
+	    To: <%= text_field :conv, :to, value: @to %>
+	    <%= form.file_field :file %>
+	    <br>
+	    <div>
+	    <%= form.submit 'Send', class: 'btn btn-primary btn-lg' %>
+		</div>
+	<% end %>
+</div>

@@ -23,7 +23,7 @@
 	                        <%= time_ago_in_words(m.created_at) %>
 	                    </small>
 	                </div>
-	                <%= media_tag m, style: 'position: center; width: 50%; height: auto;' %>
+	                <%= media_tag m, style: 'position: center; width: 80%; height: auto;' %>
 
 	            </div>
 	        </li>
@@ -37,9 +37,8 @@
 	                		<%= time_ago_in_words(m.created_at) %>
 	                	</small>
                         <strong class="pull-right primary-font"><%= m.user.name %></strong>
-
 	                </div>
-	                <%= media_tag m,  style: 'position: center; width: 50%; height: auto;' %>
+	                <%= media_tag m,  style: 'position: center; width: 80%; height: auto;' %>
 	            </div>
 	        </li>
 	    <% end %>
