@@ -50,6 +50,9 @@
     <% if alert %>
       <div class="alert alert-warning"><%= alert %></div>
     <% end %>
+     <% if notice %>
+        <p class="notice" id="notice"><%= notice %></p>
+     <% end %>
      <%= yield %>
   </section>
   

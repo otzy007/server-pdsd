@@ -23,6 +23,11 @@ class FriendsController < ApplicationController
     @number = params.require(:friend).require :number
     @friend = User.find_by_number @number
 
+    if @friend && current_user.friendships.find_by_friend_id(@friend.id)
+      redirect_to new_friend_path, notice: "You and #{@friend.name} are already friends."
+      return
+    end
+
     unless @friend
       redirect_to new_friend_path, alert: "No user found with the phone number #{@number}"
       return
@@ -45,5 +50,10 @@ class FriendsController < ApplicationController
       format.html { redirect_to friends_path, alert: "#{User.find(id).name} is now your friend" }
       format.json { render :json => {success: 'OK'} }
     end
+  end
+
+  def destroy
+    current_user.friendships.find_by_id(params.require(:id)).destroy
+    redirect_to :friends
   end
 end

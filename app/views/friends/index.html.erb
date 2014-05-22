@@ -2,5 +2,6 @@
 <div class="list-group">
 <% @friendships.each do |f| %>
     <a class="list-group-item" href="<%= new_conversation_path( to: f.friend.number )%>"> <h4 class="list-group-item-heading"><%= f.friend.name %></h4></a>
+    <%= button_to "Delete", friend_path(f.id), :method => :delete, class: "btn btn-danger", :data => { :confirm => 'Are you sure?' } %>
 <% end %>
 </div>
