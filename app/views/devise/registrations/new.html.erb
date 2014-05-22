@@ -1,21 +1,25 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true %></div>
+  <div>
+    <%= f.text_field :name, autofocus: true, placeholder: 'Usename', class: 'form-control' %></div>
+  </div>
 
-  <div><%= f.label :number %><br />
-  <%= f.text_field :number %></div>
+  <div>
+    <%= f.number_field :number, placeholder: 'Telephone number', class: 'form-control' %></div>
+  </div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div>
+    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %></div>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm password', class: 'form-control' %></div>
+  <div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div>
+    <%= f.submit "Sign up", class: 'btn btn-default' %>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>

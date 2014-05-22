@@ -39,7 +39,7 @@
             <ul class="nav navbar-nav">
               <li><a href="/conversations">Conversations</a></li>
               <li><a href="/friends">Friends</a></li>
-              <li><a href="users/sign_out">Sign Out</a></li>
+              <li><a href="/users/sign_out">Sign Out</a></li>
             </ul>
           </nav>
 
@@ -48,10 +48,10 @@
   </header>
   <section id="body" class="">
     <% if alert %>
-      <div class="alert alert-warning"><%= alert %></div>
+      <div class="alert alert-success"><%= alert %></div>
     <% end %>
      <% if notice %>
-        <p class="notice" id="notice"><%= notice %></p>
+        <div class="alert alert-danger" id="notice"><%= notice %></div>
      <% end %>
      <%= yield %>
   </section>
