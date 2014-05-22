@@ -1,7 +1,17 @@
-<%= link_to 'Add Friend', new_friend_path %>
+
 <div class="list-group">
-<% @friendships.each do |f| %>
-    <a class="list-group-item" href="<%= new_conversation_path( to: f.friend.number )%>"> <h4 class="list-group-item-heading"><%= f.friend.name %></h4></a>
-    <%= button_to "Delete", friend_path(f.id), :method => :delete, class: "btn btn-danger", :data => { :confirm => 'Are you sure?' } %>
-<% end %>
+    <a class="list-group-item" href="<%= new_friend_path%>">
+    	<h4 class="list-group-item-heading">Add Friend</h4>
+    </a>
 </div>
+
+<% @friendships.each do |f| %>
+<div class="panel">
+    <div class="panel-heading clearfix">
+    	<%=  link_to f.friend.name, new_conversation_path( to: f.friend.number )%>
+    	<div class="btn-group pull-right">
+    	<%= button_to "Delete", friend_path(f.id), :method => :delete, class: "btn btn-danger btn-sm", :data => { :confirm => 'Are you sure?' } %>
+    </div>
+    </div>
+    </div>
+<% end %>
