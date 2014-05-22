@@ -1,7 +1,18 @@
+<header class="navbar-fixed-top">
+Nume friend din comversatie
+</header>
+
+<article>
 <% @messages.each do |m| %>
     <%= image_tag 'avatar.gif' %>
     <br />
     <%= m.user.name %>
     <%= media_tag m,  size: '225x225' %>
     <br />
+
 <% end %>
+</article>
+
+<footer class="navbar-fixed-bottom">
+	Buton de upload
+</footer>
