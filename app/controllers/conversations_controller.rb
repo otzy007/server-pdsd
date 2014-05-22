@@ -16,6 +16,10 @@ class ConversationsController < ApplicationController
     @conversation = current_user.conversations.find_by_id params.require(:id)
     @messages = @conversation.messages.order('created_at')
 
+    uc = @conversation.user_conversations.find_by_user_id(current_user)
+    uc.read = true
+    uc.save
+
     friend = @conversation.users.collect { |u| u if u != current_user }.compact.first
     @message = Message.new user: friend
     @to = friend.number
@@ -30,11 +34,13 @@ class ConversationsController < ApplicationController
   def new
     @message = Message.new
 
-    to = params.permit(:to)[:to]
+    @to = params.permit(:to)[:to]
 
-    if to
-      c = current_user.conversations.includes(:users).where('users.number' => to)
-      unless c.empty?
+    if @to
+      c = current_user.conversations.includes(:users).where('users.number' => @to)
+      if c.empty?
+        @name = User.find_by_number(@to).name
+      else
         redirect_to conversation_path(c.first)
       end
     end
@@ -54,6 +60,9 @@ class ConversationsController < ApplicationController
       conversation = conversations.first
     end
     conversation.messages.create file: params.require(:message).require(:file), user: current_user
+    uc = conversation.user_conversations.where.not(user_id: current_user).first
+    uc.read = false
+    uc.save
     conversation.save
 
     redirect_to conversation_path(conversation)

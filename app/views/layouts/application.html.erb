@@ -15,18 +15,43 @@
   <link rel="stylesheet" href="/static/css/prettify.css">
   <link rel="stylesheet" href="/static/css/component.css">
 
-  <script src="/static/js/lib/modernizr.custom.js"></script>
+  <script src="/static/js/lib/jquery.min.js"></script>
+  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <script src="/static/js/lib/bootstrap-contextmenu.js"></script>
+  <script src="/static/js/lib/bootstrap-slider.js"></script>
+  <!--<script src="/static/js/lib/modernizr.custom.js"></script>-->
 
 </head>
 <body>
 
-  <header id="header" class="navbar navbar-static-top bs-docs-nav" role="banner"></header>
+  <header id="header" class="navbar navbar-static-top bs-docs-nav" role="banner">
+    <div>
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+          <nav class="collapse navbar bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+              <li><a href="/conversations">Conversations</a></li>
+              <li><a href="/friends">Friends</a></li>
+              <li><a href="users/sign_out">Sign Out</a></li>
+            </ul>
+          </nav>
+
+      </div>
+    </div>
+  </header>
   <section id="body" class="">
      <%= yield %>
   </section>
   <footer id="footer" class="bs-docs-masthead"></footer>
   
-  <script data-main="/static/js/main" src="/static/js/lib/require.js"></script>
+  <!--<script data-main="/static/js/main" src="/static/js/lib/require.js"></script>-->
 	
 </body>
 

@@ -1,3 +1,6 @@
+<% if alert %>
+    <p class="alert" id="alert"><%= alert %></p>
+<% end %>
 <%= form_for @friend, url: find_new_friends_path do |form| %>
     Number: <%= text_field :friend, :number %>
     <br />
