@@ -34,11 +34,13 @@ class ConversationsController < ApplicationController
   def new
     @message = Message.new
 
-    to = params.permit(:to)[:to]
+    @to = params.permit(:to)[:to]
 
-    if to
-      c = current_user.conversations.includes(:users).where('users.number' => to)
-      unless c.empty?
+    if @to
+      c = current_user.conversations.includes(:users).where('users.number' => @to)
+      if c.empty?
+        @name = User.find_by_number(@to).name
+      else
         redirect_to conversation_path(c.first)
       end
     end
