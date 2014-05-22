@@ -1,2 +1,6 @@
 <div class="alert alert-info">Found <%= @friend.name %> for number <%= @number %></div>
-<%= button_to 'Add to Friends', friend_add_path(@friend.id), class: 'btn btn-default' %>
+<div class="container center_div">
+	<div>
+		<%= button_to 'Add to Friends', friend_add_path(@friend.id), class: 'btn btn-primary btn-lg' %>
+	</div>
+</div>
