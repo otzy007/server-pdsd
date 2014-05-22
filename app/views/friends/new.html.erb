@@ -1,8 +1,4 @@
-<% if alert %>
-    <p class="alert" id="alert"><%= alert %></p>
-<% end %>
-<%= form_for @friend, url: find_new_friends_path do |form| %>
-    Number: <%= text_field :friend, :number %>
-    <br />
-    <%= form.submit 'Search' %>
+<%= form_for @friend, url: find_new_friends_path, :class => "form-inline" do |form| %>
+    <%= text_field :friend, :number, placeholder: 'Insert number' %>
+    <%= form.submit 'Search', class: "btn btn-default" %>
 <% end %>

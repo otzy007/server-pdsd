@@ -23,6 +23,7 @@
 
 </head>
 <body>
+
   <header id="header" class="navbar navbar-static-top bs-docs-nav" role="banner">
     <div>
       <div class="container">
@@ -46,11 +47,16 @@
     </div>
   </header>
   <section id="body" class="">
+    <% if alert %>
+      <div class="alert alert-warning"><%= alert %></div>
+    <% end %>
      <% if notice %>
         <p class="notice" id="notice"><%= notice %></p>
      <% end %>
      <%= yield %>
   </section>
+  <footer id="footer" class="bs-docs-masthead"></footer>
+  
   <!--<script data-main="/static/js/main" src="/static/js/lib/require.js"></script>-->
 	
 </body>
