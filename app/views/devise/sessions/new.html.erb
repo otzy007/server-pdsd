@@ -3,20 +3,18 @@
 	<div class="input-group input-group-lg">
 		<%= f.number_field :number, autofocus: true, placeholder: 'Number', class: 'form-control' %>
 	</div>
-
+	<br>
 	<div class="input-group input-group-lg">
 		<%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
 	</div>
-
+	<br>
 	<% if devise_mapping.rememberable? -%>
-	<div class="input-group input-group-lg">
 		<%= f.check_box :remember_me, checked: true, hidden: true %> <%= f.label :remember_me, hidden: true %>
-	</div>
 	<% end -%>
-
 	<div class="input-group input-group-lg">
 		<%= f.submit "Sign in", class: 'btn btn-primary btn-lg' %>
 	</div>
+	<br>
 	<% end %>
 	<%= render "devise/shared/links" %>
 </div>
