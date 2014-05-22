@@ -3,4 +3,4 @@
 <% @friendships.each do |f| %>
     <a class="list-group-item" href="<%= new_conversation_path( to: f.friend.number )%>"> <h4 class="list-group-item-heading"><%= f.friend.name %></h4></a>
 <% end %>
-</ul>
+</div>

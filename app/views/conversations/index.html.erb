@@ -1,7 +1,8 @@
-<%= link_to 'New Conversation', :new_conversation %>
-<br />
+<ul class="list-group">
 <% @conversations.each do |c| %>
-    <%= image_tag 'avatar.gif' %>
-    <%= link_to friend_name(c), conversation_path(c.id) %>
-    <br />
+     <li class="list-group-item" href="<%= conversation_path(c.id) %>">
+     	<%= friend_name(c) %>
+     	<span class="badge">42</span>
+     </li>
 <% end %>
+</ul>
