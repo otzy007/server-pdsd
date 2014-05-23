@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   has_many :conversations, :through => :user_conversations
   has_many :messages
   has_many :friendships
+
+  validates_presence_of :number, :password, :name
 end
