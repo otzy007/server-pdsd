@@ -21,9 +21,13 @@ class FriendsController < ApplicationController
   # Params:
   # +friend:number+:: numarul cautat
   def find_new
-    p params
-    @number = params.require(:friend).require :number
-    @friend = User.find_by_number @number
+    begin
+      @number = params.require(:friend).require :number
+      @friend = User.find_by_number @number
+    rescue ActionController::ParameterMissing
+      redirect_to new_friend_path, notice: 'Please enter a phone number'
+      return
+    end
 
     if @friend && current_user.friendships.find_by_friend_id(@friend.id)
       redirect_to new_friend_path, notice: "You and #{@friend.name} are already friends."
